@@ -111,24 +111,24 @@ float alpha = 0.8;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
-	"black",
-	"red3",
-	"green3",
-	"yellow3",
-	"blue2",
-	"magenta3",
-	"cyan3",
-	"gray90",
+  [0] = "#232323", /* black   */
+  [1] = "#FF000F", /* red     */
+  [2] = "#8CE10B", /* green   */
+  [3] = "#FFB900", /* yellow  */
+  [4] = "#008DF8", /* blue    */
+  [5] = "#6D43A6", /* magenta */
+  [6] = "#00D8EB", /* cyan    */
+  [7] = "#FFFFFF", /* white   */
 
-	/* 8 bright colors */
-	"gray50",
-	"red",
-	"green",
-	"yellow",
-	"#5c5cff",
-	"magenta",
-	"cyan",
-	"white",
+  /* 8 bright colors */
+  [8]  = "#444444", /* black   */
+  [9]  = "#FF2740", /* red     */
+  [10] = "#ABE15B", /* green   */
+  [11] = "#FFD242", /* yellow  */
+  [12] = "#0092FF", /* blue    */
+  [13] = "#9A5FEB", /* magenta */
+  [14] = "#67FFF0", /* cyan    */
+  [15] = "#FFFFFF", /* white   */
 
 	[255] = 0,
 
@@ -213,6 +213,9 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Prior,       zoom,           {.f = +1} },
 	{ TERMMOD,              XK_Next,        zoom,           {.f = -1} },
 	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
+  { TERMMOD,              XK_plus,        zoom,           {.f = +1} },
+	{ TERMMOD,              XK_underscore,  zoom,           {.f = -1} },
+	{ TERMMOD,              XK_parenright,  zoomreset,      {.f =  0} },
 	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
 	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
